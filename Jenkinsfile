@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Create Ubuntu Server') {
             steps {
-                sh 'cd server && ls && cd ubuntu-server && ls && terraform init && terraform plan -chdir var-file=../environments/monitoring.tfvars && cd ..'
+                sh 'cd server && ls && cd ubuntu-server && ls && terraform init && terraform plan -var-file=../environments/monitoring.tfvars && cd ..'
             }
         }
         stage('Create Linux Server toolbox1') {
