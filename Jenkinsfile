@@ -9,12 +9,7 @@ pipeline {
     stages {
         stage('Build AMI') {
             steps {
-                sh 'ls'
-                sh 'cd packer'
-                sh 'ls'
-                sh 'packer build linux.json'
-                sh 'packer build ubuntu.json'
-                sh 'cd ..'
+                sh 'ls && cd packer && ls && packer build linux.json && packer build ubuntu.json && cd ..'
             }
         }
         stage('Create Ubuntu Server') {
