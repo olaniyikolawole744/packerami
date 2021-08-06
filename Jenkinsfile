@@ -10,6 +10,7 @@ pipeline {
         stage('Build AMI') {
             steps {
                 sh 'cd packer'
+                sh 'ls'
                 sh 'packer build linux.json'
                 sh 'packer build ubuntu.json'
                 sh 'cd ..'
@@ -18,7 +19,9 @@ pipeline {
         stage('Create Ubuntu Server') {
             steps {
                 sh 'cd server'
+                sh 'ls'
                 sh 'cd ubuntu-server'
+                sh 'ls'
                 sh 'terraform init'
                 sh 'terraform plan var-file=../environments/monitoring.tfvars'
                 sh 'terraform apply var-file=../environments/monitoring.tfvars --auto-approve'
