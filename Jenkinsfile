@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Build AMI') {
             steps {
+                sh 'ls'
                 sh 'cd packer'
                 sh 'ls'
                 sh 'packer build linux.json'
