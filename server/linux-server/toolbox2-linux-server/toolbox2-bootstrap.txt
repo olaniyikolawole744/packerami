@@ -1,0 +1,8 @@
+#!/bin/bash
+sudo yum install unzip
+sudo wget https://releases.hashicorp.com/packer/1.7.3/packer_1.7.3_linux_amd64.zip
+sudo unzip packer_1.7.3_linux_amd64.zip
+sudo cp packer /usr/local/bin
+sudo wget https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
+sudo unzip terraform_1.0.0_linux_amd64.zip
+sudo cp terraform /usr/local/bin

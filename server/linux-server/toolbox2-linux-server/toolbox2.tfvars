@@ -1,0 +1,6 @@
+ami2     = "ami-0ab4d1e9cf9a1215a"
+az2      = "us-east-1b"
+role2    = "Tool Server 2"
+name2    = ""
+purpose2 = "Tool"
+index2   = "2"

@@ -1,0 +1,35 @@
+{
+  "variables": {
+    "access_key": "{{env `ACCESS_KEY`}}",
+    "secret_key": "{{env `SECRET_KEY`}}"
+     },
+    
+      "builders": [
+    
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `access_key`}}", 
+      "secret_key": "{{user `secret_key`}}",
+  "region": "us-east-1",
+  "ami_name": "my-linux-ami",
+  "source_ami": "ami-0ab4d1e9cf9a1215a",
+  "instance_type": "t2.micro",
+  "ssh_username": "ec2-user"
+}
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "linux-script.sh"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "manifest",
+      "output": "linux-manifest.json"
+    }
+  ],
+  "sensitive-variables": ["access_key","secret_key"]
+}
+
+
