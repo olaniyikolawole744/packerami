@@ -19,17 +19,17 @@ pipeline {
         }
         stage('Create Linux Server toolbox1') {
             steps {
-                sh 'cd server && cd linux-server && ls && cd toolbox1-linux-server && terraform init && terraform plan -var-file=../../environments/toolbox1.tfvars && terraform plan -var-file=../../environments/toolbox1.tfvars --auto-approve'
+                sh 'cd server && cd linux-server && ls && cd toolbox1-linux-server && terraform init && terraform plan -var-file=../../environments/toolbox1.tfvars && terraform apply -var-file=../../environments/toolbox1.tfvars --auto-approve'
             }
         }
         stage('Create Linux Server toolbox2') {
             steps {
-                sh 'cd server && cd linux-server && cd toolbox2-linux-server && ls && terraform init && terraform plan -var-file=../../environments/toolbox2.tfvars && terraform plan -var-file=../../environments/toolbox2.tfvars --auto-approve'
+                sh 'cd server && cd linux-server && cd toolbox2-linux-server && ls && terraform init && terraform plan -var-file=../../environments/toolbox2.tfvars && terraform apply -var-file=../../environments/toolbox2.tfvars --auto-approve'
             }
         }
         stage('Destroy Infrastructure') {
             steps {
-                sh 'terraform destroy --auot-approve' 
+                sh 'terraform destroy --auto-approve' 
             }
         }
     }
