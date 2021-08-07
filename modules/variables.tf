@@ -23,7 +23,7 @@ variable "security-group" {
 
 variable "key-name" {
   type    = string
-  default = "training_kp"
+  default = "jenkins-kp"
 }
 
 variable "environment" {
